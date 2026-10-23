@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: salles-lab-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: sallesdb
+      POSTGRES_USER: salles
+      POSTGRES_PASSWORD: salles
+    ports:
+      - "5432:5432"
+    volumes:
+      - salles_data:/var/lib/postgresql/data
+
+volumes:
+  salles_data:
